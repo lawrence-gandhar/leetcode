@@ -60,6 +60,9 @@ class Solution:
     
 
     def method2(self, digits):
+        if digits[0] == 9:
+            digits = [0] + digits
+
         if digits[-1] < 9:
             digits[-1] += 1
             return digits
@@ -67,15 +70,12 @@ class Solution:
             i = len(digits) - 1
             remaindar = 0 
             while i >= 0:
-
-                print(i, digits[i])
-
                 if digits[i] == 9:
                     digits[i] = 0
                     remaindar = 1
 
                     if i == 0 and remaindar == 1:
-                        digits.insert(0, 1)
+                        digits = [1] + digits
                         return digits
                 else:
                     if digits[i] < 9:
@@ -86,9 +86,9 @@ class Solution:
             return digits
 
 
-t1 = [1,2,3]
+t1 = [9,8,7,6,5,4,3,2,1,0]
 t2 = [4,3,9,9]
-t3 = [9,9,9,9]
+t3 = [9]
 
 ss = Solution()
 
